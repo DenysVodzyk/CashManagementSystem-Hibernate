@@ -1,6 +1,10 @@
 package com.example.hibernatetest;
 
+import com.example.hibernatetest.entity.Customer;
 import com.example.hibernatetest.entity.Merchant;
+import com.example.hibernatetest.service.CustomerService;
+import com.example.hibernatetest.service.ICustomerService;
+import com.example.hibernatetest.service.IMerchantService;
 import com.example.hibernatetest.service.MerchantService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -8,8 +12,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        MerchantService merchantService = context.getBean(MerchantService.class);
-        Merchant m1 = merchantService.findById(1);
-        System.out.println(m1);
+
+        IMerchantService merchantService = context.getBean(MerchantService.class);
+        ICustomerService customerService = context.getBean(ICustomerService.class);
+
+        System.out.println(merchantService.findById(1));
+        System.out.println(customerService.findById(1));
+
+        Customer elon = new Customer("Elon Musk", "3500 Deer Creek, Palo Alto, CA 94304",
+                "NAsales@teslamotors.com", "1111111111111111", "Visa", java.sql.Date.valueOf("2022-10-22"));
+
+        customerService.save(elon);
+        System.out.println("Id: " + elon.getId());
     }
 }
