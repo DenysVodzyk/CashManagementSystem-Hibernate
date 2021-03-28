@@ -11,9 +11,15 @@ public class MerchantRepo implements IMerchantRepo {
     @PersistenceContext
     private EntityManager em;
 
-
     @Override
     public Merchant findById(int id) {
         return em.find(Merchant.class, id);
     }
+
+    @Override
+    public void save(Merchant merchant) {
+        em.persist(merchant);
+    }
+
+
 }
