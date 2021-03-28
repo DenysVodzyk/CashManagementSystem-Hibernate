@@ -6,4 +6,8 @@ public interface ICustomerService {
     public Customer findById(int id);
 
     public void save(Customer customer);
+
+    public boolean remove(int id);
+
+    public boolean remove(Customer customer);
 }
