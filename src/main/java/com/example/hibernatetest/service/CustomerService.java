@@ -24,4 +24,16 @@ public class CustomerService implements ICustomerService {
     public void save(Customer customer) {
         customerRepo.save(customer);
     }
+
+    @Override
+    @Transactional
+    public boolean remove(int id) {
+        return customerRepo.remove(id);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(Customer customer) {
+        return customerRepo.remove(customer);
+    }
 }
