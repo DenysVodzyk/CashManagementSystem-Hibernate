@@ -4,4 +4,6 @@ import com.example.hibernatetest.entity.Merchant;
 
 public interface IMerchantService {
     public Merchant findById(int id);
+
+    public void save(Merchant merchant);
 }
