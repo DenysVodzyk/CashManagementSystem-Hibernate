@@ -34,6 +34,19 @@ public class Merchant {
     public Merchant() {
     }
 
+    public Merchant(String name, String bankName, String swift, String account, Double charge, int period, Double minSum, Double needToSend, Double sent, Date lastSent) {
+        this.name = name;
+        this.bankName = bankName;
+        this.swift = swift;
+        this.account = account;
+        this.charge = charge;
+        this.period = period;
+        this.minSum = minSum;
+        this.needToSend = needToSend;
+        this.sent = sent;
+        this.lastSent = lastSent;
+    }
+
     public int getId() {
         return id;
     }
