@@ -18,7 +18,11 @@ public class CustomerRepo implements ICustomerRepo {
 
     @Override
     public void save(Customer customer) {
-        em.persist(customer);
+        if (customer.getId() == 0) {
+            em.persist(customer);
+        } else {
+            em.persist(customer);
+        }
     }
 
     @Override
@@ -36,6 +40,14 @@ public class CustomerRepo implements ICustomerRepo {
     public boolean remove(Customer customer) {
         if (customer != null) {
             em.remove(customer);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean update(Customer customer) {
+        if (customer != null) {
             return true;
         }
         return false;
