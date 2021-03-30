@@ -36,4 +36,15 @@ public class CustomerService implements ICustomerService {
     public boolean remove(Customer customer) {
         return customerRepo.remove(customer);
     }
+
+    @Override
+    @Transactional
+    public boolean updateCc(int id, String ccNumber) {
+        Customer customer = findById(id);
+        if (customer != null) {
+            customer.setCcNo(ccNumber);
+            return customerRepo.update(customer);
+        }
+        return false;
+    }
 }
