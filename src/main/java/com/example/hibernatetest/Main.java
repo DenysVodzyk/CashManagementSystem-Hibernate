@@ -33,6 +33,10 @@ public class Main {
 //
 //        System.out.println(customerService.remove(15));
 
-        System.out.println(customerService.remove(customerService.findById(21)));
+        System.out.println("Customer 2 update: " + customerService.updateCc(2, "255555555555"));
+
+        System.out.println(customerService.findById(2));
+
+
     }
 }
