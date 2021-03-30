@@ -10,4 +10,6 @@ public interface ICustomerService {
     public boolean remove(int id);
 
     public boolean remove(Customer customer);
+
+    public boolean updateCc(int id, String ccNumber);
 }
