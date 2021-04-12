@@ -2,6 +2,7 @@ package com.example.hibernatetest.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Table(name = "customer")
@@ -22,6 +23,10 @@ public class Customer {
     private String ccType;
     @Column(name = "maturity")
     private java.sql.Date maturity;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "payment", joinColumns = @JoinColumn(name = "customerId"),
+            inverseJoinColumns = @JoinColumn(name = "merchantId"))
+    private Collection<Merchant> merchants;
 
     public Customer() {
     }
@@ -89,6 +94,14 @@ public class Customer {
 
     public void setMaturity(Date maturity) {
         this.maturity = maturity;
+    }
+
+    public Collection<Merchant> getMerchants() {
+        return merchants;
+    }
+
+    public void setMerchants(Collection<Merchant> merchants) {
+        this.merchants = merchants;
     }
 
     @Override
