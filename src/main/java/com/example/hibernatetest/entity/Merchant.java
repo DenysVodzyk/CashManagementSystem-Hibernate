@@ -2,6 +2,7 @@ package com.example.hibernatetest.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Table(name = "merchant")
@@ -30,6 +31,9 @@ public class Merchant {
     private Double sent;
     @Column(name = "lastSent")
     private java.sql.Date lastSent;
+
+    @OneToMany(mappedBy = "merchant", fetch = FetchType.EAGER)
+    private Collection<Payment> payments;
 
     public Merchant() {
     }
@@ -133,6 +137,14 @@ public class Merchant {
 
     public void setLastSent(Date lastSent) {
         this.lastSent = lastSent;
+    }
+
+    public Collection<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Collection<Payment> payments) {
+        this.payments = payments;
     }
 
     @Override
