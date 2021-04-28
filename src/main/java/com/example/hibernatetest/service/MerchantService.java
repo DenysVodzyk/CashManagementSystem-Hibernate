@@ -35,5 +35,10 @@ public class MerchantService implements IMerchantService {
         return merchantRepo.getSortedByNeedToPay();
     }
 
+    @Override
+    public List<Merchant> findAll() {
+        return merchantRepo.findAll();
+    }
+
 
 }
