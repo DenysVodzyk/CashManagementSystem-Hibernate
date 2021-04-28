@@ -14,4 +14,6 @@ public interface IMerchantRepo {
     public List<Result> getTotalReport();
 
     public List<Merchant> getSortedByNeedToPay();
+
+    public List<Merchant> findAll();
 }
