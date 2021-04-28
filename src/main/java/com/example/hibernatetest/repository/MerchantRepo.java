@@ -39,5 +39,11 @@ public class MerchantRepo implements IMerchantRepo {
         return query.getResultList();
     }
 
+    @Override
+    public List<Merchant> findAll() {
+        TypedQuery<Merchant> query = em.createQuery("SELECT m FROM Merchant m", Merchant.class);
+        return query.getResultList();
+    }
+
 
 }
