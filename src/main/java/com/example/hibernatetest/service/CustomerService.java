@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Service
@@ -40,11 +41,16 @@ public class CustomerService implements ICustomerService {
     @Override
     @Transactional
     public boolean updateCc(int id, String ccNumber) {
-        Customer customer = findById(id);
+        Customer customer = customerRepo.findById(id);
         if (customer != null) {
             customer.setCcNo(ccNumber);
             return customerRepo.update(customer);
         }
         return false;
+    }
+
+    @Override
+    public List<String> getNamesBySumPaid(double sumPaid) {
+        return customerRepo.getNamesBySumPaid(sumPaid);
     }
 }
