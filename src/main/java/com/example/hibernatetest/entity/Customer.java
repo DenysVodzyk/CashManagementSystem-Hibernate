@@ -24,7 +24,7 @@ public class Customer {
     @Column(name = "maturity")
     private java.sql.Date maturity;
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "payment", joinColumns = @JoinColumn(name = "customerId"),
+    @JoinTable(name = "Payment", joinColumns = @JoinColumn(name = "customerId"),
             inverseJoinColumns = @JoinColumn(name = "merchantId"))
     private Collection<Merchant> merchants;
 
