@@ -20,7 +20,19 @@ public class PaymentService implements IPaymentService {
     }
 
     @Override
-    public List<Customer> selectByCustomerId(int id) {
+    public List<Payment> selectByCustomerId(int id) {
         return paymentRepo.selectByCustomerId(id);
     }
+
+    @Override
+    public double getPaymentsSum() {
+        return paymentRepo.getPaymentsSum();
+    }
+
+    @Override
+    public List<Payment> getPaymentsAboveLimit(double limit) {
+        return paymentRepo.getPaymentsAboveLimit(limit);
+    }
+
+
 }
