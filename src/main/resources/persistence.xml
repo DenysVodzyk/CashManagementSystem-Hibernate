@@ -21,7 +21,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
     <bean id="dataSource" class=" org.apache.tomcat.dbcp.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/cashmanagementsystem?useSSL=false"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/cashmanagementsystem?allowPublicKeyRetrieval=true&amp;useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="MySQL2210!_"/>
     </bean>
